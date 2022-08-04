@@ -12,11 +12,11 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const Tab = createMaterialBottomTabNavigator();
 
-function MyTabs() {
+function MyTabs(count) {
   return (
     <Tab.Navigator
       initialRouteName="Home"
-      barStyle={{ backgroundColor: '#FFC72C', color: 'red' }}
+      barStyle={{ backgroundColor: '#F8F8FF', color: 'red' }}
       screenOptions={{
         tabBarActiveTintColor: 'purple',
       }}>
@@ -48,7 +48,6 @@ function MyTabs() {
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="basket" color={color} size={24} />
           ),
-          tabBarBadge: 2,
         }}
       />
       <Tab.Screen

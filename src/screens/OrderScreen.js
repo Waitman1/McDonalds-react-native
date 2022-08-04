@@ -1,9 +1,26 @@
-import { View, Text, SafeAreaView, Image } from 'react-native';
+import { View, Text, SafeAreaView, Button } from 'react-native';
 import React from 'react';
-import { TouchableHighlight } from 'react-native-gesture-handler';
-import { AntDesign } from '@expo/vector-icons';
+
+import { useDispatch, useSelector } from 'react-redux';
+
+import { clearItems } from '../redux/slices/cartSlice';
+
+import CartEmpty from '../components/CartEmpty';
+import CartItem from '../components/CartItem';
 
 const OrderScreen = () => {
+  const dispatch = useDispatch();
+
+  const { totalPrice, items } = useSelector((state) => state.cart);
+
+  const onClickClear = () => {
+    dispatch(clearItems());
+  };
+
+  if (!totalPrice) {
+    return <CartEmpty />;
+  }
+
   return (
     <>
       <SafeAreaView
@@ -20,49 +37,27 @@ const OrderScreen = () => {
             color: '#27251F',
             marginBottom: 10,
           }}>
-          Ваши заказы
+          Корзина
         </Text>
       </SafeAreaView>
       <View
         style={{
-          backgroundColor: 'black',
+          backgroundColor: '#F8F8FF',
           height: '100%',
-          justifyContent: 'center',
-          paddingTop: 30,
-          flexDirection: 'row',
+          alignItems: 'center',
         }}>
+        {items.map((item) => (
+          <CartItem key={item.id} {...item} />
+        ))}
         <Text
           style={{
-            color: 'white',
-            fontSize: 20,
-            marginRight: 180,
+            marginTop: 30,
+            color: 'black',
+            fontSize: 30,
           }}>
-          Заказ
+          Сумма заказа: {totalPrice} ₽
         </Text>
-        <TouchableHighlight
-          style={{
-            backgroundColor: '#FFC72C',
-            borderRadius: 7,
-            width: 30,
-            height: 27,
-            justifyContent: 'center',
-            alignItems: 'center',
-            marginRight: 20,
-          }}>
-          <AntDesign name="plus" size={18} color="black" />
-        </TouchableHighlight>
-
-        <TouchableHighlight
-          style={{
-            backgroundColor: '#FFC72C',
-            borderRadius: 7,
-            width: 30,
-            height: 27,
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}>
-          <AntDesign name="minus" size={18} color="black" />
-        </TouchableHighlight>
+        <Button onPress={onClickClear} title="Очистить"></Button>
       </View>
     </>
   );

@@ -1,7 +1,6 @@
 import { View, Text, SafeAreaView, TouchableHighlight } from 'react-native';
 import React from 'react';
-import { COLORS, SIZES } from '../../constants';
-import Stock from '../components/Stock';
+
 
 const StockScreen = () => {
   return (
@@ -27,7 +26,7 @@ const StockScreen = () => {
           Акции
         </Text>
       </SafeAreaView>
-      <Stock />
+     
     </View>
   );
 };

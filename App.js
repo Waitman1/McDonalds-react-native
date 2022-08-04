@@ -1,15 +1,17 @@
-import { StyleSheet, View } from 'react-native';
-import Header from './src/components/Header';
-import Categories from './src/components/Categories';
-import Popular from './src/components/Popular';
+import { StyleSheet } from 'react-native';
+
 import { COLORS } from './constants';
 import AppNavigator from './src/navigation/AppNavigator';
 
+import { Provider } from 'react-redux';
+import { store } from './src/redux/store';
+
 export default function App() {
   return (
-    <AppNavigator style={styles.container}>
-      
-    </AppNavigator>
+    <Provider store={store}>
+      <AppNavigator style={styles.container}>
+		</AppNavigator>
+    </Provider>
   );
 }
 
