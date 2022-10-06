@@ -7,7 +7,7 @@ const MoreScreen = () => {
     <View
       style={{
         height: '100%',
-        backgroundColor: '#FAEBD7',
+        backgroundColor: '#F8F8FF',
       }}>
       <SafeAreaView
         style={{
@@ -26,14 +26,14 @@ const MoreScreen = () => {
           Еще
         </Text>
       </SafeAreaView>
-      <View style={{ alignItems: 'center', marginTop: 50 }}>
+      <View style={{ alignItems: 'center', marginTop: 50,}}>
         <TouchableHighlight
           underlayColor={COLORS.secondary}
           style={{
             height: 70,
             width: '70%',
             justifyContent: 'center',
-            borderRadius: SIZES.radius,
+            borderRadius: 10,
             backgroundColor: '#FFC72C',
             alignItems: 'center',
             shadowColor: '#000',
@@ -61,7 +61,7 @@ const MoreScreen = () => {
             height: 70,
             width: '70%',
             justifyContent: 'center',
-            borderRadius: SIZES.radius,
+				borderRadius: 10,
             backgroundColor: '#FFC72C',
             marginTop: 20,
             alignItems: 'center',
@@ -84,42 +84,14 @@ const MoreScreen = () => {
             Город
           </Text>
         </TouchableHighlight>
-        <TouchableHighlight
-          underlayColor={COLORS.secondary}
-          style={{
-            height: 70,
-            width: '70%',
-            justifyContent: 'center',
-            borderRadius: SIZES.radius,
-            backgroundColor: '#FFC72C',
-            marginTop: 20,
-            alignItems: 'center',
-            shadowColor: '#000',
-            shadowOffset: {
-              width: 0,
-              height: 2,
-            },
-            shadowOpacity: 0.25,
-            shadowRadius: 3.84,
 
-            elevation: 5,
-          }}>
-          <Text
-            style={{
-              fontSize: 17,
-              color: '#27251F',
-              fontWeight: '500',
-            }}>
-            Уведомления
-          </Text>
-        </TouchableHighlight>
         <TouchableHighlight
           underlayColor={COLORS.secondary}
           style={{
             height: 70,
             width: '70%',
             justifyContent: 'center',
-            borderRadius: SIZES.radius,
+				borderRadius: 10,
             backgroundColor: '#FFC72C',
             marginTop: 20,
             alignItems: 'center',
@@ -142,42 +114,14 @@ const MoreScreen = () => {
             Старые заказы
           </Text>
         </TouchableHighlight>
+      
         <TouchableHighlight
           underlayColor={COLORS.secondary}
           style={{
             height: 70,
             width: '70%',
             justifyContent: 'center',
-            borderRadius: SIZES.radius,
-            backgroundColor: '#FFC72C',
-            marginTop: 20,
-            alignItems: 'center',
-            shadowColor: '#000',
-            shadowOffset: {
-              width: 0,
-              height: 2,
-            },
-            shadowOpacity: 0.25,
-            shadowRadius: 3.84,
-
-            elevation: 5,
-          }}>
-          <Text
-            style={{
-              fontSize: 17,
-              color: '#27251F',
-              fontWeight: '500',
-            }}>
-            Нужна помощь
-          </Text>
-        </TouchableHighlight>
-        <TouchableHighlight
-          underlayColor={COLORS.secondary}
-          style={{
-            height: 70,
-            width: '70%',
-            justifyContent: 'center',
-            borderRadius: SIZES.radius,
+            borderRadius: 10,
             backgroundColor: '#FFC72C',
             marginTop: 20,
             alignItems: 'center',

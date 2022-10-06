@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native';
+import { View, Text, Image } from 'react-native';
 import { SIZES } from '../../constants';
 
 const CartEmpty = () => {
@@ -19,18 +19,13 @@ const CartEmpty = () => {
           justifyContent: 'center',
           borderRadius: SIZES.radius,
         }}>
+        <Image
+          source={{
+            uri: 'https://cdn.onlinewebfonts.com/svg/download_76755.png',
+          }}
+          style={{ width: 200, height: 200, marginRight: 50, marginBottom: 40 }}
+        />
         <Text style={{ color: 'black', fontSize: 30 }}>Корзина пуста</Text>
-        <Text
-          style={{
-            color: 'black',
-            fontSize: 18,
-            textAlign: 'center',
-            marginTop: 20,
-            width: '90%',
-          }}>
-          Вероятней всего, вы не заказывали еще бургеров. Для того, чтобы заказать бургеры,
-          перейдите на главную страницу.
-        </Text>
       </View>
     </View>
   );

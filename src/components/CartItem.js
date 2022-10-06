@@ -1,31 +1,12 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { TouchableHighlight, View, Image, Text } from 'react-native';
 
 import { COLORS, SIZES } from '../../constants';
-import { addItem, minusItem, removeItem, } from '../redux/slices/cartSlice';
 
 import { AntDesign, Entypo } from '@expo/vector-icons';
 
-const CartItem = ({ id, name, price, count, image }) => {
-  const dispatch = useDispatch();
-
-  const onClickPlus = () => {
-    dispatch(
-      addItem({
-        id,
-      }),
-    );
-  };
-
-  const onClickMinus = () => {
-    dispatch(minusItem(id));
-  };
-
-  const onClickRemove = () => {
-    dispatch(removeItem(id));
-  };
-
+const CartItem = ({ id, name, image }) => {
   return (
     <>
       <View
@@ -90,28 +71,25 @@ const CartItem = ({ id, name, price, count, image }) => {
 
                   textAlign: 'center',
                 }}>
-                {price} ₽
+                ₽
               </Text>
             </View>
             <View style={{ alignItems: 'center' }}>
-              <AntDesign onPress={onClickMinus} name="minus" size={20} color="red" />
+              <AntDesign name="minus" size={20} color="red" />
               <Text
                 style={{
                   fontSize: 20,
-                }}>
-                {count}
-              </Text>
-              <AntDesign onPress={onClickPlus} style={{}} name="plus" size={20} color="red" />
+                }}></Text>
+              <AntDesign style={{}} name="plus" size={20} color="red" />
             </View>
             <Text
               style={{
                 marginTop: 20,
                 fontSize: 20,
               }}>
-              {price * count} ₽
+              ₽
             </Text>
             <Entypo
-              onPress={onClickRemove}
               style={{
                 marginTop: 15,
               }}

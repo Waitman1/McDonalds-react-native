@@ -13,7 +13,7 @@ export const categories = [
   },
   {
     id: 2,
-    image: 'https://mcdonalds-delivery.ru/wp-content/uploads/2020/07/HAPPY_NUG.png',
+    image: 'https://cs8.pikabu.ru/post_img/2017/11/30/10/151205920014157113.png',
     name: 'Хэппи Милл',
     price: '350₽',
   },

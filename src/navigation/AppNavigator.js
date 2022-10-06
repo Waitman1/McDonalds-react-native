@@ -1,18 +1,56 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 
 import HomeScreen from '../screens/HomeScreen';
 import MapScreen from '../screens/MapScreen';
 import MoreScreen from '../screens/MoreScreen';
-import OrderScreen from '../screens/OrderScreen';
+
 import StockScreen from '../screens/StockScreen';
+import CartScreen from '../screens/CartScreen';
+
+import PreparingOrderScreen from '../screens/PreparingOrderScreen';
+import FullScreen from '../screens/FullScreen';
+import DeliveryScreen from '../screens/DeliveryScreen';
 
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const Tab = createMaterialBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
-function MyTabs(count) {
+const HomeStack = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="FullScreen" component={FullScreen} options={{ headerShown: false }} />
+      <Stack.Screen
+        name="Cart"
+        component={CartScreen}
+        options={{ presentation: 'modal', headerShown: false }}
+      />
+      <Stack.Screen
+        name="PreparingOrderScreen"
+        component={PreparingOrderScreen}
+        options={{
+          presentation: 'fullScreenModal',
+          headerShown: false,
+        }}
+      />
+
+      <Stack.Screen
+        name="Delivery"
+        component={DeliveryScreen}
+        options={{
+          presentation: 'fullScreenModal',
+          headerShown: false,
+        }}
+      />
+    </Stack.Navigator>
+  );
+};
+
+function MyTabs() {
   return (
     <Tab.Navigator
       initialRouteName="Home"
@@ -21,8 +59,8 @@ function MyTabs(count) {
         tabBarActiveTintColor: 'purple',
       }}>
       <Tab.Screen
-        name="Home"
-        component={HomeScreen}
+        name="Home2"
+        component={HomeStack}
         options={{
           tabBarLabel: 'Главная',
           tabBarIcon: ({ color, size }) => (
@@ -30,26 +68,7 @@ function MyTabs(count) {
           ),
         }}
       />
-      <Tab.Screen
-        name="Stock"
-        component={StockScreen}
-        options={{
-          tabBarLabel: 'Акции',
-          tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="ticket-percent-outline" color={color} size={24} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Order"
-        component={OrderScreen}
-        options={{
-          tabBarLabel: 'Заказ',
-          tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="basket" color={color} size={24} />
-          ),
-        }}
-      />
+
       <Tab.Screen
         name="Map"
         component={MapScreen}

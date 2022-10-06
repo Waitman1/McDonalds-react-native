@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Linking, View, TouchableNativeFeedback, Text, StyleSheet } from 'react-native';
+import { Image, Linking, View, TouchableNativeFeedback, Text,  } from 'react-native';
 
 import { useSelector } from 'react-redux';
 import StockScreen from '../screens/StockScreen';
@@ -38,32 +38,9 @@ const Header = () => {
             color: 'black',
             fontSize: 20,
           }}>
-          {totalCount}
+          
         </Text>
 
-        <TouchableNativeFeedback style={{}} onPress={StockScreen}>
-          <Image
-            source={{
-              uri: 'https://cdn-icons-png.flaticon.com/512/34/34627.png',
-            }}
-            style={{
-              width: 35,
-              height: 35,
-              position: 'absolute',
-              left: 15,
-              right: 0,
-              bottom: 0,
-            }}
-          />
-        </TouchableNativeFeedback>
-
-        <Text
-          style={{
-            color: 'black',
-            fontSize: 20,
-          }}>
-          {totalPrice} ₽
-        </Text>
       </View>
     </View>
   );

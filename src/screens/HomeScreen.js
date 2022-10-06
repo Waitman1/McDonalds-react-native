@@ -1,17 +1,21 @@
-import { View, StyleSheet, Text, ScrollView,  } from 'react-native';
-import React, { useState } from 'react';
+import { View, StyleSheet, Text, ScrollView } from 'react-native';
+import React from 'react';
 import Header from '../components/Header';
 import BurgerBlock from '../components/BurgerBlock';
 
 import burger from '../burgers.json';
 
+import HistoryScreen from '../components/HistoryScreen';
+import { useNavigation } from '@react-navigation/native';
+
 const HomeScreen = () => {
- 
+  const navigation = useNavigation();
 
   return (
     <>
       <View style={styles.container}>
         <Header />
+        <HistoryScreen />
         <Text
           style={{
             fontSize: 30,
@@ -20,10 +24,14 @@ const HomeScreen = () => {
           }}>
           Популярное
         </Text>
-        <ScrollView style={{ height: '100%' }} showsVerticalScrollIndicator={false}>
-          <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
+        <ScrollView style={{ height: '79%' }} showsVerticalScrollIndicator={false}>
+          <View style={{ flexDirection: 'row', flexWrap: 'wrap', marginBottom: 20 }}>
             {burger.map((obj) => (
-              <BurgerBlock key={obj.id} {...obj} />
+              <BurgerBlock
+                key={obj.id}
+                {...obj}
+                onPress={() => navigation.navigate('FullScreen', { ...obj })}
+              />
             ))}
           </View>
         </ScrollView>
